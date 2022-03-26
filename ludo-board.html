@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Ludo Board</title>
+  <style type="text/css">
+   *{
+   margin: 0;
+   padding: 0;
+   font-family: San-Serif;
+   }
+   
+   .main-board {
+   width: 850px;
+   height: 850px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   }
+   
+   .red-container {
+   width: 350px;
+   height: 350px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   }
+   
+   .red-white-box {
+   width: 250px;
+   height: 250px;
+   border-radius: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   }
+   
+   .red-box-i {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 50px;
+   left: 50px;
+   }
+   
+   .red-box-ii {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 150px;
+   left: 50px;
+   }
+   
+   .red-box-iii {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 50px;
+   left: 150px;
+   }
+   
+   .red-box-iv {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 150px;
+   left: 150px;
+   }
+   
+   .white-container-i {
+   width: 150px;
+   height: 350px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 350px;
+   }
+   
+   .i-white-box-i {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   }
+   
+   .i-white-box-ii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50px;
+   }
+   
+   .i-white-box-iii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   }
+   
+   .i-white-box-iv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 150px;
+   }
+   
+   .i-white-box-v {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 200px;
+   }
+   
+   .i-white-box-vi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 250px;
+   }
+   
+   .i-white-box-vii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 300px;
+   }
+   
+   .i-white-box-viii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 50px;
+   }
+   
+   .i-white-box-ix {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   left: 50px;
+   top: 50px;
+   }
+   
+   .i-white-box-x {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   left: 50px;
+   top: 100px;
+   }
+   
+   .i-white-box-xi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   left: 50px;
+   top: 150px;
+   }
+   
+   .i-white-box-xii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   left: 50px;
+   top: 200px;
+   }
+   
+   .i-white-box-xiii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   left: 50px;
+   top: 250px;
+   }
+   
+   .i-white-box-xiv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   left: 50px;
+   top: 300px;
+   }
+   
+   .i-white-box-xv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   }
+   
+   .i-white-box-xvi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   left: 100px;
+   top: 50px;
+   }
+   
+   .i-white-box-xvii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 100px;
+   }
+   
+   .i-white-box-xviii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 150px;
+   }
+   
+   .i-white-box-xix {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 200px;
+   }
+   
+   .i-white-box-xx {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 250px;
+   }
+   
+   .i-white-box-xxi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 300px;
+   }
+   
+   .green-container {
+   width: 350px;
+   height: 350px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   left: 500px;
+   }
+   
+   .green-white-box {
+   width: 250px;
+   height: 250px;
+   border-radius: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   }
+   
+   .green-box-i {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   top: 50px;
+   left: 50px;
+   }
+   
+   .green-box-ii {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   top: 150px;
+   left: 50px;
+   }
+   
+   .green-box-iii {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   top: 50px;
+   left: 150px;
+   }
+   
+   .green-box-iv {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: green;
+   position: absolute;
+   top: 150px;
+   left: 150px;
+   }
+   
+   .white-container-ii {
+   width: 350px;
+   height: 150px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 350px;
+   }
+   
+   .ii-white-box-i {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   }
+   
+   .ii-white-box-ii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 50px;
+   }
+   
+   .ii-white-box-iii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 100px;
+   }
+   
+   .ii-white-box-iv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 150px;
+   }
+   
+   .ii-white-box-v {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 200px;
+   }
+   
+   .ii-white-box-vi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 250px;
+   }
+   
+   .ii-white-box-vii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 300px;
+   }
+   
+   .ii-white-box-viii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50px;
+   }
+   
+   .ii-white-box-ix {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 50px;
+   left: 50px;
+   }
+   
+   .ii-white-box-x {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 50px;
+   left: 100px;
+   }
+   
+   .ii-white-box-xi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 50px;
+   left: 150px;
+   }
+   
+   .ii-white-box-xii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 50px;
+   left: 200px;
+   }
+   
+   .ii-white-box-xiii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 50px;
+   left: 250px;
+   }
+   
+   .ii-white-box-xiv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   top: 50px;
+   left: 300px;
+   }
+   
+   .ii-white-box-xv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   }
+   
+   .ii-white-box-xvi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: red;
+   position: absolute;
+   left: 50px;
+   }
+   
+   .ii-white-box-xvii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   }
+   
+   .ii-white-box-xviii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 150px;
+   }
+   
+   .ii-white-box-xix {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 200px;
+   }
+   
+   .ii-white-box-xx {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 250px;
+   }
+   
+   .ii-white-box-xxi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 300px;
+   }
+   
+   .home-container {
+   width: 150px;
+   height: 150px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 350px;
+   left: 350px;
+   }
+   
+   .home-box {
+   width: 0px;
+   height: 0px;
+   border-top: 75px solid green;
+   border-left: 75px solid red;
+   border-bottom: 75px solid blue;;
+   border-right: 75px solid yellow;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   }
+   
+   .tri-green {
+   color: white;
+   font-size: 130%;
+   font-weight: bold;
+   position: absolute;
+   top: 10px;
+   left: 45px;
+   transform: rotate(180deg);
+   }
+   
+   .tri-red {
+   color: white;
+   font-size: 130%;
+   font-weight: bold;
+   position: absolute;
+   top: 65px;
+   right: 100px;
+   transform: rotate(90deg);
+   }
+   
+   .tri-blue {
+   color: white;
+   font-size: 130%;
+   font-weight: bold;
+   position: absolute;
+   bottom: 10px;
+   left: 45px;
+   }
+   
+   .tri-yellow {
+   color: black;
+   font-size: 130%;
+   font-weight: bold;
+   position: absolute;
+   top: 65px;
+   left: 100px;
+   transform: rotate(270deg);
+   }
+   
+   .blue-container {
+   width: 350px;
+   height: 350px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   top: 500px;
+   }
+   
+   .blue-white-box {
+   width: 250px;
+   height: 250px;
+   border-radius: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   }
+   
+   .blue-box-i {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   top: 50px;
+   left: 50px;
+   }
+   
+   .blue-box-ii {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   top: 150px;
+   left: 50px;
+   }
+   
+   .blue-box-iii {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   top: 50px;
+   left: 150px;
+   }
+   
+   .blue-box-iv {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   top: 150px;
+   left: 150px;
+   }
+   
+   .white-container-iii {
+   width: 150px;
+   height: 350px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 500px;
+   left: 350px;
+   }
+   
+   .iii-white-box-i {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   }
+   
+   .iii-white-box-ii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50px;
+   }
+   
+   .iii-white-box-iii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   }
+   
+   .iii-white-box-iv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 150px;
+   }
+   
+   .iii-white-box-v {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 200px;
+   }
+   
+   .iii-white-box-vi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   top: 250px;
+   }
+   
+   .iii-white-box-vii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 300px;
+   }
+   
+   .iii-white-box-viii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   left: 50px;
+   }
+   
+   .iii-white-box-ix {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   left: 50px;
+   top: 50px;
+   }
+   
+   .iii-white-box-x {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   left: 50px;
+   top: 100px;
+   }
+   
+   .iii-white-box-xi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   left: 50px;
+   top: 150px;
+   }
+   
+   .iii-white-box-xii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   left: 50px;
+   top: 200px;
+   }
+   
+   .iii-white-box-xiii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: blue;
+   position: absolute;
+   left: 50px;
+   top: 250px;
+   }
+   
+   .iii-white-box-xiv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 50px;
+   top: 300px;
+   }
+   
+   .iii-white-box-xv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   }
+   
+   .iii-white-box-xvi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 50px;
+   }
+   
+   .iii-white-box-xvii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 100px;
+   }
+   
+   .iii-white-box-xviii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 150px;
+   }
+   
+   .iii-white-box-xix {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 200px;
+   }
+   
+   .iii-white-box-xx {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 250px;
+   }
+   
+   .iii-white-box-xxi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   top: 300px;
+   }
+   
+   .yellow-container {
+   width: 350px;
+   height: 350px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 500px;
+   left: 500px;
+   }
+   
+   .yellow-white-box {
+   width: 250px;
+   height: 250px;
+   border-radius: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   }
+   
+   .yellow-box-i {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 50px;
+   left: 50px;
+   }
+   
+   .yellow-box-ii {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 150px;
+   left: 50px;
+   }
+   
+   .yellow-box-iii {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 50px;
+   left: 150px;
+   }
+   
+   .yellow-box-iv {
+   width: 50px;
+   height: 50px;
+   border-radius: 40px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 150px;
+   left: 150px;
+   }
+   
+   .white-container-iv {
+   width: 350px;
+   height: 150px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 350px;
+   left: 500px;
+   }
+   
+   .iv-white-box-i {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   }
+   
+   .iv-white-box-ii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 50px;
+   }
+   
+   .iv-white-box-iii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 100px;
+   }
+   
+   .iv-white-box-iv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 150px;
+   }
+   
+   .iv-white-box-v {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 200px;
+   }
+   
+   .iv-white-box-vi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 100px;
+   left: 250px;
+   }
+   
+   .iv-white-box-vii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 100px;
+   left: 300px;
+   }
+   
+   .iv-white-box-viii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 50px;
+   }
+   
+   .iv-white-box-ix {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 50px;
+   left: 50px;
+   }
+   
+   .iv-white-box-x {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 50px;
+   left: 100px;
+   }
+   
+   .iv-white-box-xi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 50px;
+   left: 150px;
+   }
+   
+   .iv-white-box-xii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 50px;
+   left: 200px;
+   }
+   
+   .iv-white-box-xiii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: yellow;
+   position: absolute;
+   top: 50px;
+   left: 250px;
+   }
+   
+   .iv-white-box-xiv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   top: 50px;
+   left: 300px;
+   }
+   
+   .iv-white-box-xv {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   }
+   
+   .iv-white-box-xvi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 50px;
+   }
+   
+   .iv-white-box-xvii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 100px;
+   }
+   
+   .iv-white-box-xviii {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 150px;
+   }
+   
+   .iv-white-box-xix {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 200px;
+   }
+   
+   .iv-white-box-xx {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 250px;
+   }
+   
+   .iv-white-box-xxi {
+   width: 50px;
+   height: 50px;
+   border: 0.5px solid black;
+   background-color: white;
+   position: absolute;
+   left: 300px;
+   }
+  </style>
+ </head>
+ <body>
+  <div class="main-board">
+   <div class="red-container">
+    <div class="red-white-box">
+     <div class="red-box-i"></div>
+     <div class="red-box-ii"></div>
+     <div class="red-box-iii"></div>
+     <div class="red-box-iv"></div>
+    </div>
+   </div>
+   <div class="green-container">
+    <div class="green-white-box">
+     <div class="green-box-i"></div>
+     <div class="green-box-ii"></div>
+     <div class="green-box-iii"></div>
+     <div class="green-box-iv"></div>
+    </div>
+   </div>
+   <div class="blue-container">
+    <div class="blue-white-box">
+     <div class="blue-box-i"></div>
+     <div class="blue-box-ii"></div>
+     <div class="blue-box-iii"></div>
+     <div class="blue-box-iv"></div>
+    </div>
+   </div>
+   <div class="yellow-container">
+    <div class="yellow-white-box">
+     <div class="yellow-box-i"></div>
+     <div class="yellow-box-ii"></div>
+     <div class="yellow-box-iii"></div>
+     <div class="yellow-box-iv"></div>
+    </div>
+   </div>
+   <div class="white-container-i">
+    <div class="i-white-box-i"></div>
+    <div class="i-white-box-ii"></div>
+    <div class="i-white-box-iii"></div>
+    <div class="i-white-box-iv"></div>
+    <div class="i-white-box-v"></div>
+    <div class="i-white-box-vi"></div>
+    <div class="i-white-box-vii"></div>
+    <div class="i-white-box-viii"></div>
+    <div class="i-white-box-ix"></div>
+    <div class="i-white-box-x"></div>
+    <div class="i-white-box-xi"></div>
+    <div class="i-white-box-xii"></div>
+    <div class="i-white-box-xiii"></div>
+    <div class="i-white-box-xiv"></div>
+    <div class="i-white-box-xv"></div>
+    <div class="i-white-box-xvi"></div>
+    <div class="i-white-box-xvii"></div>
+    <div class="i-white-box-xviii"></div>
+    <div class="i-white-box-xix"></div>
+    <div class="i-white-box-xx"></div>
+    <div class="i-white-box-xxi"></div>
+   </div>
+   <div class="white-container-ii">
+    <div class="ii-white-box-i"></div>
+    <div class="ii-white-box-ii"></div>
+    <div class="ii-white-box-iii"></div>
+    <div class="ii-white-box-iv"></div>
+    <div class="ii-white-box-v"></div>
+    <div class="ii-white-box-vi"></div>
+    <div class="ii-white-box-vii"></div>
+    <div class="ii-white-box-viii"></div>
+    <div class="ii-white-box-ix"></div>
+    <div class="ii-white-box-x"></div>
+    <div class="ii-white-box-xi"></div>
+    <div class="ii-white-box-xii"></div>
+    <div class="ii-white-box-xiii"></div>
+    <div class="ii-white-box-xiv"></div>
+    <div class="ii-white-box-xv"></div>
+    <div class="ii-white-box-xvi"></div>
+    <div class="ii-white-box-xvii"></div>
+    <div class="ii-white-box-xviii"></div>
+    <div class="ii-white-box-xix"></div>
+    <div class="ii-white-box-xx"></div>
+    <div class="ii-white-box-xxi"></div>
+   </div>
+   <div class="white-container-iii">
+    <div class="iii-white-box-i"></div>
+    <div class="iii-white-box-ii"></div>
+    <div class="iii-white-box-iii"></div>
+    <div class="iii-white-box-iv"></div>
+    <div class="iii-white-box-v"></div>
+    <div class="iii-white-box-vi"></div>
+    <div class="iii-white-box-vii"></div>
+    <div class="iii-white-box-viii"></div>
+    <div class="iii-white-box-ix"></div>
+    <div class="iii-white-box-x"></div>
+    <div class="iii-white-box-xi"></div>
+    <div class="iii-white-box-xii"></div>
+    <div class="iii-white-box-xiii"></div>
+    <div class="iii-white-box-xiv"></div>
+    <div class="iii-white-box-xv"></div>
+    <div class="iii-white-box-xvi"></div>
+    <div class="iii-white-box-xvii"></div>
+    <div class="iii-white-box-xviii"></div>
+    <div class="iii-white-box-xix"></div>
+    <div class="iii-white-box-xx"></div>
+    <div class="iii-white-box-xxi"></div>
+   </div>
+   <div class="white-container-iv">
+    <div class="iv-white-box-i"></div>
+    <div class="iv-white-box-ii"></div>
+    <div class="iv-white-box-iii"></div>
+    <div class="iv-white-box-iv"></div>
+    <div class="iv-white-box-v"></div>
+    <div class="iv-white-box-vi"></div>
+    <div class="iv-white-box-vii"></div>
+    <div class="iv-white-box-viii"></div>
+    <div class="iv-white-box-ix"></div>
+    <div class="iv-white-box-x"></div>
+    <div class="iv-white-box-xi"></div>
+    <div class="iv-white-box-xii"></div>
+    <div class="iv-white-box-xiii"></div>
+    <div class="iv-white-box-xiv"></div>
+    <div class="iv-white-box-xv"></div>
+    <div class="iv-white-box-xvi"></div>
+    <div class="iv-white-box-xvii"></div>
+    <div class="iv-white-box-xviii"></div>
+    <div class="iv-white-box-xix"></div>
+    <div class="iv-white-box-xx"></div>
+    <div class="iv-white-box-xxi"></div>
+   </div>
+   <div class="home-container">
+    <div class="home-box"></div>
+     <font class="tri-green">HOME</font>
+     <font class="tri-red">HOME</font>
+     <font class="tri-blue">HOME</font>
+     <font class="tri-yellow">HOME</font>
+    </div>
+   </div>
+ </body>
+</html>
